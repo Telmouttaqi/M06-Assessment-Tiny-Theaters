@@ -86,10 +86,11 @@ inner join theater th on p.theater_id = th.theater_id;
 
 select 	c.first_name,
 		c.last_name, 
-        count(t.seat)
+        count(t.seat) as ticketsPurchasedPerCustomer
 from customer c
 inner join ticket t on c.customer_id = t.customer_id
-group by c.first_name;
+group by c.customer_id
+order by count(t.seat) desc;
 
 
 -- Calculate the total revenue per show based on tickets sold.

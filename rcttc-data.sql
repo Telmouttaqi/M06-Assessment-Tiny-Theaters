@@ -1,35 +1,9 @@
 use TinyTheaters;
 
-select * from rcttc_data;
-
- -- 74 customer with no duplicate 
- -- select distinct statement is used to return only distinct
-select distinct customer_first,
-				customer_last,
-                customer_email,
-				customer_phone, 
-                customer_address
-from rcttc_data; 
-
--- 3 theaters with their informations.
-select distinct theater, theater_address , theater_phone , theater_email from rcttc_data;  
-
- -- 9 shows
- -- Later, Ill be adding 3 missing shows.  
-select distinct `show` from rcttc_data;
-
--- performance table show, theater name, data and price
-select distinct `show`, theater, date, ticket_price from rcttc_data;
-
--- seat performance table 
-
-SELECT DISTINCT customer_first, customer_last, seat, `show`, theater, date
-FROM rcttc_data;
-
--- Write insert-from-select statements to move the data from the denormalized table to the normalized tables
+-- Write **INSERT** from-select statements to move the data from the denormalized table to the normalized tables
 
  -- 1) Customer Table
--- insert into customer (first_name, last_name, email, phone, address)
+insert into customer (first_name, last_name, email, phone, address)
 select distinct customer_first,
 				customer_last,
                 customer_email,
@@ -41,7 +15,7 @@ from rcttc_data;
 select * from customer;
 
 -- 2) Theater Table
--- insert into theater (address,phone,name, email)
+insert into theater (address,phone,name, email)
 select distinct 	theater_address,
 					theater_phone,
                     theater,
@@ -53,14 +27,14 @@ from rcttc_data;
 select * from theater;
 
 -- 3) Show Table
--- insert into `show` (title)
+insert into `show` (title)
 select distinct `show` from rcttc_data;
 
 -- adding 3 missing shows
--- insert into `show` (title)
--- values 	("High School Musical"),
-	-- 	("Ocean: the life of Frank Ocean as performed by Frank Ocean"),
-      --  ("Wen");
+	insert into `show` (title)
+	values 	("High School Musical"),
+	("Ocean: the life of Frank Ocean as performed by Frank Ocean"),
+	("Wen");
 
 select * from `show`;
 
@@ -70,7 +44,7 @@ select 	date,
 		ticket_price
         from rcttc_data;
         
--- insert into performance (show_id, theater_id, date, price)
+insert into performance (show_id, theater_id, date, price)
 select distinct s.show_id ,
 				t.theater_id,
                 rd.date,
@@ -84,7 +58,7 @@ select * from performance;
 
 -- 4) Ticket Table
 
--- insert into ticket (customer_id, performance_id, seat)
+insert into ticket (customer_id, performance_id, seat)
 select distinct c.customer_id,
 				p.performance_id,
                 rd.seat
@@ -204,9 +178,11 @@ having count(t.seat) = 1;
 -- performance_id ,customer id , full name , theater name , date , show name , price and the count of the seats
 
 -- 1	7	Hertha	Glendining	10 Pin	2021-03-01	Send in the Clowns		15.00			1
+
 delete from ticket where performance_id = 1 and customer_id = 7;
 
 -- 2	8	Flinn	Crowcher	10 Pin	2021-09-24	Send in the Clowns		15.00			1
+
 delete from ticket where performance_id = 2 and customer_id = 8;
 
 -- 2	10	Lucien	Playdon		10 Pin	2021-09-24	Send in the Clowns		15.00			1

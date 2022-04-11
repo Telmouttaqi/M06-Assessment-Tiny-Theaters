@@ -1,7 +1,7 @@
-
+drop database if exists TinyTheaters;
 create database TinyTheaters ;
-	use TinyTheaters ;
-    
+use TinyTheaters ;
+
 create table customer (
 
 customer_id int primary key auto_increment,
