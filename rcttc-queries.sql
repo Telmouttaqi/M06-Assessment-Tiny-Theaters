@@ -18,7 +18,7 @@ select * from customer;
 
 -- Find all customers without a `.com` email address.
 
-select * from customer 
+select distinct * from customer 
 where email not like "%.com";
 
 -- Find the three cheapest shows.
