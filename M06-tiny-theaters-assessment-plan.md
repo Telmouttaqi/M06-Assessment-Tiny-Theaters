@@ -32,10 +32,10 @@ _These steps can be done in class on Friday_
 
 * [X] Draw a diagram of the database schema (#.# hours)
   * [X] Share with one or more classmates for feedback
-  * [ ] Update database schema as needed
-  * [ ] Share updated diagram with one or more classmates
-  * [ ] Update database schema as needed
-  * [ ] Share with assigned code reviewer for feedback
+  * [X] Update database schema as needed
+  * [X] Share updated diagram with one or more classmates
+  * [X] Update database schema as needed
+  * [X] Share with assigned code reviewer for feedback
 
 _Acceptable diagram formats_
 
@@ -50,16 +50,16 @@ _Acceptable diagram formats_
 
 _These steps can be done in class on Friday or over the weekend_
 
-* [ ] Write the DDL in a file named `rcttc-schema.sql` to create the database (#.# hours)
-  * [ ] Drop and create the database
-  * [ ] Create all of the tables
+* [X] Write the DDL in a file named `rcttc-schema.sql` to create the database (#.# hours)
+  * [X] Drop and create the database
+  * [X] Create all of the tables
 
-* [ ] Import the provided data (#.# hours)
-  * [ ] Import the csv file using Workbench _or_
-  * [ ] Run the provided SQL script
+* [X] Import the provided data (#.# hours)
+  * [X] Import the csv file using Workbench _or_
+  * [X] Run the provided SQL script
 
 * [ ] Write the DML in a file named `rcttc-data.sql` to populate the database tables (#.# hours)
-  * [ ] Write insert-from-select statements to move the data from the denormalized table to the normalized tables
+  * [X] Write insert-from-select statements to move the data from the denormalized table to the normalized tables
 
 **Make sure that my GitHub repo is updated!**
 
@@ -67,7 +67,7 @@ _These steps can be done in class on Friday or over the weekend_
 
 _These steps will be completed over the weekend_
 
-* [ ] Write the DML to make the necessary data updates (as outlined below) (#.# hours)
+* [X] Write the DML to make the necessary data updates (as outlined below) (#.# hours)
 
 * [ ] Write the required queries (as outlined below) in a file named `rcttc-queries.sql` (#.# hours)
 
@@ -79,7 +79,8 @@ _These steps will be completed over the weekend_
 
 - Use RCTTC's data to design a multi-table schema with appropriate relationships.
 - Build a SQL DDL script to create the schema.
-- Populate the database with sample data from a delimited data file. Save the DML SQL so it can be executed whenever needed.
+- Populate the database with sample data from a delimited data file. 
+  Save the DML SQL so it can be  executed whenever needed.
 - Write report queries and confirm they're working with sample data.
 
 ## The Theaters
