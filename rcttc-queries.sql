@@ -14,7 +14,7 @@ where date between "2021-10-01" and "2021-12-31";
 
 -- List customers without duplication.
 
-select * from customer;
+select distinct * from customer;
 
 -- Find all customers without a `.com` email address.
 
@@ -95,6 +95,31 @@ order by count(t.seat) desc;
 
 -- Calculate the total revenue per show based on tickets sold.
 
+select s.title as `Show`, sum(p.price) as total
+from `show` s 
+inner join performance p ON s.show_id = p.show_id
+inner join ticket t ON p.performance_id = t.performance_id
+group by s.title
+order by total desc;
+
 -- Calculate the total revenue per theater based on tickets sold.
 
+select th.name as theater , sum(p.price) as total
+from theater th
+inner join performance p on th.theater_id = p.theater_id
+inner join ticket t on p.performance_id = t.performance_id 
+group by p.theater_id
+order by total desc;
+
+
+
 -- Who is the biggest supporter of RCTTC? Who spent the most in 2021?
+
+select 	c.first_name,
+		c.last_name,
+        sum(p.price) as total
+        from customer c 
+        inner join ticket t on c.customer_id = t.customer_id
+        inner join performance p on t.performance_id = p.performance_id
+        group by c.customer_id
+        order by total desc limit 1;
